@@ -62,7 +62,7 @@ window.isMetricSystem = function() {
 }
 
 window.setSystem = function(system) {
-	const add = (system == "metric" ? ".imperial-system-item" : ".metric-system-item");
+	const add = (system == "imperial" ? ".imperial-system-item" : ".metric-system-item");
 	$$(".system-item-hidden").forEach(element => {
 		element.classList.remove("system-item-hidden");
 	});
