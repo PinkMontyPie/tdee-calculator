@@ -3196,7 +3196,7 @@ html.dark .calculator-error__item::before {
   background-color: #fecaca;
 }
 .table-cell {
-  padding: 20px 24px;
+  padding: 20px 40px;
   font-size: 18px;
   font-weight: normal;
   line-height: 24px;
@@ -3216,7 +3216,7 @@ html.dark .calculator-error__item::before {
   line-height: 1.25rem;
 }
 .table-cell--dark {
-  background-color: #2d2d2d;
+  background-color: #CEF9F2;
 }
 .table-cell--only {
   padding: 32px 24px;
@@ -3418,11 +3418,11 @@ html.dark .table-cell--fraction-text {
   border-bottom-right-radius: 0 !important;
 }
 .result-table td {
-  border-color: #2d2d2d;
+  border-color: #CEF9F2;
 }
 .result-table th {
-  background: #2d2d2d;
-  border-color: #2d2d2d;
+  background: #CEF9F2;
+  border-color: #CEF9F2;
 }
 .result-table th.indigo {
   text-transform: uppercase;
