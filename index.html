@@ -17,7 +17,7 @@
     window._ = document.getElementById.bind(document);
     window.$ = document.querySelector.bind(document);
     window.$$ = document.querySelectorAll.bind(document);
-    window.defaultSystem = "imperial";
+    window.defaultSystem = "metric";
     localStorage.setItem("theme", "light");
   </script>
   <link rel="stylesheet" href="./assets/css/main.min.css" />
@@ -26,10 +26,10 @@
 
 <body style="background-color: transparent !important; min-height: 0 !important">
   <div class="w-full flex flex-col md:flex-row">
-    <div class="p-4">
+    <div class="pb-10 md:p-[15px]">
       <div class="calculator-settings">
         <div class="calculator-setting" id="calculator_form">
-          <div class="calculator-content col">
+          <div class="calculator-content col p-[40px]">
             <div class="input-wrapper row">
               <label class="input col">
                 <input type="hidden" value="male" id="gender" />
@@ -136,13 +136,23 @@
                 </div>
               </label>
             </div>
+          </div>
 
-            <div class="">
+          <div class="calculator-content calculator-content--options calculator-content--gray col  ">
+            <div class="calculator-content-head row">
+              <p class="calculator-content-head__title">ตัวเลือก</p>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.29289 7.29289C5.68342 6.90237 6.31658 6.90237 6.7071 7.29289L9.99999 10.5858L13.2929 7.29289C13.6834 6.90237 14.3166 6.90237 14.7071 7.29289C15.0976 7.68342 15.0976 8.31658 14.7071 8.70711L10.7071 12.7071C10.3166 13.0976 9.68341 13.0976 9.29289 12.7071L5.29289 8.70711C4.90237 8.31658 4.90237 7.68342 5.29289 7.29289Z"
+                  fill="#9CA3AF"></path>
+              </svg>
+            </div>
+            <div class="calculator-content-body col">
               <div class="input-wrapper row">
-                <label class="input col">
-                  <p class="input__title">สูตรการคำนวณ BMR</p>
+                <label class="input col ">
+                  <p class="input__title">BMR Estimation Formula</p>
                   <div class="dropdown-wrapper">
-                    <div class="input-field row" tabindex="0">
+                    <div class="input-field row " tabindex="0">
                       <select class="input-field__text" onchange="toggleRelatedInputs(this)" id="formula">
                         <option value="Mifflin St Jeor">
                           Mifflin St Jeor
@@ -150,7 +160,9 @@
                         <option value="Revised Harris-Benedict">
                           Revised Harris-Benedict
                         </option>
-                        <option value="Katch-McArdle">Katch-McArdle</option>
+                        <option value="Katch-McArdle">
+                          Katch-McArdle
+                        </option>
                       </select>
                     </div>
                   </div>
@@ -158,8 +170,8 @@
               </div>
 
               <div class="input-wrapper row formula related-item-hidden related-to-formula-2">
-                <label class="input col">
-                  <p class="input__title">ไขมันในร่างกาย</p>
+                <label class="input col   ">
+                  <p class="input__title">Body Fat</p>
                   <div class="input-field row">
                     <input type="text" class="input-field__input" placeholder="" id="fat" value="20" />
                     <span class="input-field__hint">%</span>
@@ -168,47 +180,39 @@
                   <div class="input-hints row">
                     <span class="input-hints__hint input-hints__hint--comma">ใช้ในสูตร Katch-McArdle</span>
                   </div>
+
                 </label>
               </div>
             </div>
           </div>
 
           <div
-            class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row">
-            <button class="system-switcher" onclick="toggleSystem(this)" aria-label="Switch System">
+            class="calculator-content calculator-content--gray calculator-content--footer calculator-content--small row px-[40px] py-[20px]">
+            <button class="system-switcher" style="display: none;" onclick="toggleSystem(this)" aria-label="Switch System">
               <div class="system-switcher__circle"></div>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2 3.5L2 8.5M2 8L2 5.5C2 4.39543 2.89543 3.5 4 3.5C5.10457 3.5 6 4.39543 6 5.5M6 5.5L6 8.5M6 5.5L6 8M6 5.5C6 4.39543 6.89543 3.5 8 3.5C9.10457 3.5 10 4.39543 10 5.5V8.5"
-                  stroke="white" stroke-width="2" stroke-linecap="round"></path>
-              </svg>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M10.5 9.5H10C9.44772 9.5 9 9.05228 9 8.5V2.5M4.5 2.5H3.5C2.94772 2.5 2.5 2.94772 2.5 3.5L2.5 9.5M7.5 4.5L10.5 4.5M1.5 5.5L4.5 5.5"
                   stroke="white" stroke-width="2" stroke-linecap="round"></path>
               </svg>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2 3.5L2 8.5M2 8L2 5.5C2 4.39543 2.89543 3.5 4 3.5C5.10457 3.5 6 4.39543 6 5.5M6 5.5L6 8.5M6 5.5L6 8M6 5.5C6 4.39543 6.89543 3.5 8 3.5C9.10457 3.5 10 4.39543 10 5.5V8.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round"></path>
+              </svg>
             </button>
 
             <script type="text/javascript">
-              $$(".imperial-system-item, .metric-system-item").forEach(
-                function (element, index) {
-                  element.classList.remove("system-item-hidden");
-                }
-              );
-              $$(
-                defaultSystem == "imperial"
-                  ? ".imperial-system-item"
-                  : ".metric-system-item"
-              ).forEach(function (element, index) {
+              $$(".imperial-system-item, .metric-system-item").forEach(function (element, index) {
+                element.classList.remove("system-item-hidden");
+              });
+              $$((defaultSystem == "metric") ? ".imperial-system-item" : ".metric-system-item").forEach(function (element, index) {
                 element.classList.add("system-item-hidden");
               });
-              if (defaultSystem == "metric")
-                $(".system-switcher").classList.add(
-                  "system-switcher--active"
-                );
+              if (defaultSystem == "metric") $('.system-switcher').classList.add('system-switcher--active');
             </script>
 
-            <button class="button button--primary ml-auto" onclick="calculate(this); animateElements();"
+            <button class="button button--primary ml-auto w-full py-2" onclick="calculate(this); animateElements();"
               data-action="calculate" id="action-button">
               คำนวณ
             </button>
@@ -218,7 +222,7 @@
         </div>
       </div>
     </div>
-    <div style="float: left; padding: 15px; overflow: scroll">
+    <div>
       <div class="calculator-result calculator-result--error col" id="error-box">
         <div class="row">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -318,6 +322,7 @@
     </div>
   </div>
 
+  <script async src="./assets/js/options.js"></script>
   <script async src="./assets/js/lib/math.min.js"></script>
   <script defer src="./assets/js/functions.js"></script>
 </body>
